@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    @apply bg-cream font-sans text-charcoal antialiased;
+    font-optical-sizing: auto;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4 { @apply font-serif text-espresso; font-weight: 500; letter-spacing: -0.01em; }
+  ::selection { background: #C5A36A; color: #30231F; }
+  :focus-visible { outline: 2px solid #B96848; outline-offset: 3px; }
+  img { @apply select-none; }
+}
+
+@layer components {
+  .container-site { @apply mx-auto w-full max-w-site px-5 sm:px-8 lg:px-12; }
+  .section { @apply py-20 sm:py-24 lg:py-32; }
+  .eyebrow { @apply inline-flex items-center gap-3 text-[0.72rem] font-semibold uppercase tracking-eyebrow text-terracotta; }
+  .eyebrow::before { content: ''; @apply block h-px w-8 bg-current; }
+  .display-xl { font-size: clamp(2.6rem, 6.6vw, 6rem); line-height: 1.02; }
+  .display-lg { font-size: clamp(2.1rem, 4.6vw, 4rem); line-height: 1.08; }
+  .display-md { font-size: clamp(1.75rem, 3.2vw, 2.75rem); line-height: 1.15; }
+  .lead { @apply text-[1.05rem] leading-relaxed text-muted sm:text-lg; }
+  .field-label { @apply mb-2 block text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-espresso; }
+  .field-input {
+    @apply w-full rounded-none border border-line bg-white px-4 py-3.5 text-[0.95rem] text-charcoal transition-colors placeholder:text-muted/70
+      hover:border-muted/50 focus:border-terracotta focus:outline-none focus:ring-0;
+  }
+  .field-input[aria-invalid='true'] { @apply border-red-700/70 bg-red-50/40; }
+  .field-error { @apply mt-1.5 flex items-center gap-1.5 text-[0.8rem] text-red-800; }
+  .link-underline { @apply relative inline-flex items-center gap-2 pb-1; }
+  .link-underline::after { content: ''; @apply absolute bottom-0 left-0 h-px w-full origin-left scale-x-100 bg-current transition-transform duration-500; }
+  .link-underline:hover::after { @apply origin-right scale-x-0; }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { scrollbar-width: none; }
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+}
+
+/* Native date/time pickers: keep icon colour on brand */
+input[type='date']::-webkit-calendar-picker-indicator { opacity: 0.6; cursor: pointer; }
