@@ -147,7 +147,7 @@ export default function ReservationForm() {
               Demo template: this request was simulated in your browser — nothing was sent to a real booking system.
             </p>
 
-            <div className="mt-8 flex flex-col gap-3 xs:flex-row">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button variant="outline" icon={RotateCcw} onClick={startOver}>
                 Make Another Request
               </Button>
